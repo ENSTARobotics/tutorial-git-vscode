@@ -23,7 +23,9 @@ git clone https://github.com/{{ full_repo_name }}.git
 cd {{ repo_name }}
 ```
 
-`git clone` télécharge les fichiers **et l'historique Git**. Git configure aussi automatiquement un **remote**, c'est-à-dire une destination distante associée au dépôt local.
+`git clone` télécharge les fichiers **et l'historique Git**.
+
+`cd` signifie **change directory** : cette commande demande au terminal de se placer dans le dossier du dépôt que tu viens de cloner. Git configure aussi automatiquement un **remote**, c'est-à-dire une destination distante associée au dépôt local.
 
 Par convention, le remote principal s'appelle généralement `origin`.
 
@@ -49,13 +51,17 @@ Si la commande `code` est disponible :
 code .
 ```
 
+Dans cette commande, `.` représente le **dossier courant**. `code .` signifie donc « ouvrir le dossier dans lequel je me trouve avec VS Code ».
+
 Sinon, ouvre Visual Studio Code puis **File → Open Folder...** et sélectionne le dossier `{{ repo_name }}`.
 
 Ouvre ensuite le terminal intégré de VS Code avec **Terminal → New Terminal**. À partir de maintenant, tu peux réaliser toutes les commandes du tutoriel directement dans ce terminal.
 
 ### 3. Vérifier ton identité Git
 
-Chaque commit contient un auteur. Vérifie la configuration actuelle :
+Chaque commit contient un auteur. Ici, l'option `--global` demande à Git de lire ou modifier la configuration de **ton utilisateur sur cet ordinateur**, et pas uniquement celle de ce dépôt.
+
+Vérifie la configuration actuelle :
 
 ```bash
 git config --global user.name
@@ -94,6 +100,8 @@ Vérifie aussi ta branche actuelle :
 git branch --show-current
 ```
 
+L'option `--show-current` demande simplement à Git d'afficher le nom de la branche sur laquelle tu te trouves.
+
 Tu dois être sur `main`.
 
 ### 5. Créer une branche de travail
@@ -103,6 +111,8 @@ Dans le club, on évite de travailler directement sur `main`. Crée une branche 
 ```bash
 git switch -c feature/robot-status
 ```
+
+Le préfixe `feature/` est ici une **convention de nommage** : il permet de reconnaître rapidement qu'il s'agit d'une branche créée pour développer une fonctionnalité. Git lui-même n'impose pas ce préfixe.
 
 `git switch` change de branche et l'option `-c` signifie ici **create** : elle crée d'abord la nouvelle branche puis te place dessus.
 
