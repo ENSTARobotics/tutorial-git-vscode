@@ -245,6 +245,10 @@ jobs:
 
           merged="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$PR_NUMBER" --jq '.merged')"
           if [ "$merged" = "true" ]; then
-            echo "Le merge a déjà eu lieu : lancement immédiat de l'étape 5."
-            gh workflow run 5-review-merge.yml --ref main -f pr-number="$PR_NUMBER"
+            merge_sha="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$PR_NUMBER" --jq '.merge_commit_sha')"
+            run_count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/5-review-merge.yml/runs?head_sha=$merge_sha&per_page=1" --jq '.total_count')"
+            if [ "$run_count" -eq 0 ]; then
+              echo "Le merge a déjà eu lieu : lancement immédiat de l'étape 5."
+              gh workflow run 5-review-merge.yml --ref main -f pr-number="$PR_NUMBER"
+            fi
           fi
