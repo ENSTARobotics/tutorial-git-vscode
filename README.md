@@ -10,7 +10,7 @@ _Apprends le workflow Git utilisé au quotidien dans le club, depuis ton ordinat
 
 ## Bienvenue
 
-Ce tutoriel fait suite à **GitHub Basics**.
+Ce tutoriel fait suite à **[GitHub Basics](https://github.com/ENSTARobotics/tutorial-github-basics)**.
 
 Dans le premier cours, tu as appris le modèle mental depuis le navigateur : dépôt, branche, commit, pull request, review et merge.
 
@@ -43,18 +43,20 @@ ordinateur à jour
 
 ## Ce que tu vas apprendre
 
-Pendant l'exercice, tu vas pratiquer :
+Pendant l'exercice, tu vas apprendre à :
 
-- `git clone` et la différence entre dépôt local et dépôt distant ;
-- `git status`, ton réflexe principal quand tu travailles avec Git ;
-- `git diff` et le diff visuel de VS Code ;
-- la **staging area** avec `git add` ;
-- les commits locaux et l'historique avec `git log` ;
-- `git restore` pour annuler proprement une modification locale ;
-- les branches avec `git switch` ;
-- le remote `origin`, `git fetch`, `git push` et `git pull` ;
-- le panneau **Source Control** et le graphe Git de VS Code ;
-- le cycle complet jusqu'à une pull request et son merge.
+- copier un dépôt GitHub sur ton ordinateur avec `git clone` ;
+- voir l'état de ton travail avec `git status` ;
+- comparer précisément tes modifications avec `git diff` ;
+- choisir les changements qui entreront dans le prochain commit avec `git add` ;
+- créer des commits locaux et lire leur historique ;
+- annuler proprement une modification locale avec `git restore` ;
+- créer une branche de travail avec `git switch` ;
+- comprendre comment ton dépôt local est relié à GitHub ;
+- utiliser le panneau **Source Control** et le graphe Git de VS Code ;
+- effectuer le cycle complet jusqu'à une pull request et son merge.
+
+Les termes comme **remote**, **origin**, **staging area**, **upstream** ou **HEAD** seront définis au moment où tu les rencontres.
 
 ## Prérequis
 
@@ -77,7 +79,7 @@ Le cours est conçu pour être réalisé sur **ta machine locale**, pas dans Cod
 
 Crée un nouveau dépôt à partir de ce **dépôt modèle**.
 
-[![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Exercice%3A%20Git%20%26%20VS%20Code&visibility=public)
+[![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Tutoriel%20interactif%20%3A%20apprendre%20Git%20en%20ligne%20de%20commande%20avec%20VS%20Code&visibility=public)
 
 Après la création du dépôt :
 

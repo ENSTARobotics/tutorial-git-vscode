@@ -6,16 +6,17 @@ Tu as déjà manipulé des branches et des commits depuis GitHub.com. Maintenant
 
 Le dépôt que tu vois sur GitHub est le **dépôt distant**. Avec Git, tu travailles normalement sur une copie complète stockée sur ta machine : le **dépôt local**.
 
+Le dépôt local possède ses propres fichiers, branches et commits. Il n'est pas synchronisé en permanence avec GitHub : certaines commandes servent à récupérer des changements, d'autres à publier les tiens.
+
 ```mermaid
 flowchart LR
-    A[GitHub<br/>dépôt distant] -->|git clone| B[Ordinateur<br/>dépôt local]
-    B -->|git push| A
-    A -->|git fetch / git pull| B
+    A[GitHub<br/>dépôt distant] -->|copier ou récupérer| B[Ordinateur<br/>dépôt local]
+    B -->|publier des commits| A
 ```
 
 ### 1. Cloner ta copie du tutoriel
 
-Ouvre un terminal dans le dossier où tu ranges tes projets, puis exécute :
+Ouvre un **terminal**, c'est-à-dire une interface texte dans laquelle tu peux saisir des commandes, dans le dossier où tu ranges tes projets. Puis exécute :
 
 ```bash
 git clone https://github.com/{{ full_repo_name }}.git
@@ -115,10 +116,20 @@ git push -u origin feature/robot-status
 
 Décomposition :
 
-- `git push` envoie tes commits vers un remote ;
-- `origin` est le remote GitHub ;
-- `feature/robot-status` est ta branche ;
-- `-u` enregistre la branche distante comme **upstream** de ta branche locale. Les prochains `git push` et `git pull` pourront donc fonctionner sans répéter le nom du remote et de la branche.
+- `git push` **publie sur GitHub les commits de ta branche locale** ;
+- `origin` est le nom du remote GitHub créé automatiquement par `git clone` ;
+- `feature/robot-status` est le nom de ta branche ;
+- `-u` signifie ici : « associe ma branche locale à cette branche sur GitHub ».
+
+Cette branche distante associée devient la **branche amont**, appelée **upstream branch** dans Git. Une fois cette relation enregistrée, Git sait par défaut où envoyer tes prochains `git push` et depuis quelle branche distante récupérer avec `git pull`.
+
+Tu peux visualiser cette relation avec :
+
+```bash
+git branch -vv
+```
+
+Si tout est correct, la ligne de `feature/robot-status` contient une indication comme `[origin/feature/robot-status]`.
 
 > [!IMPORTANT]
 > Utilise exactement le nom `feature/robot-status` pour cette branche : l'automatisation du tutoriel l'attend.
@@ -130,6 +141,6 @@ Dès que la branche apparaît sur GitHub, Mona détecte ton premier `push` et pu
 
 Le clone d'un dépôt public ne nécessite pas forcément d'authentification, mais **push** modifie GitHub et doit donc t'identifier.
 
-Utilise la méthode déjà configurée sur ton ordinateur, typiquement HTTPS avec le gestionnaire d'identifiants Git, GitHub CLI ou SSH. Si aucune méthode n'est configurée, suis la documentation GitHub sur l'authentification Git avant de continuer.
+Utilise la méthode déjà configurée sur ton ordinateur, typiquement **HTTPS** ou **SSH**, deux méthodes permettant à Git de s'authentifier auprès de GitHub. Tu peux aussi utiliser **GitHub CLI (`gh`)**, l'outil officiel en ligne de commande de GitHub. Si aucune méthode n'est configurée, suis la documentation GitHub sur l'authentification Git avant de continuer.
 
 </details>
