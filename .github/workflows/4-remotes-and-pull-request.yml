@@ -16,6 +16,10 @@ on:
         required: true
         type: string
 
+concurrency:
+  group: git-vscode-step-4-${{ github.repository }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   actions: write
@@ -242,6 +246,10 @@ jobs:
           if [ "$next_state" != "active" ]; then
             gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/5-review-merge.yml/enable"
           fi
+
+          # Laisse à GitHub quelques secondes pour enregistrer un événement déjà parti.
+          echo "Attendre les événements déjà en vol..."
+          sleep 2
 
           merged="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$PR_NUMBER" --jq '.merged')"
           if [ "$merged" = "true" ]; then

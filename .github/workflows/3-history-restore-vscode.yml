@@ -8,6 +8,10 @@ on:
       - ".gitignore"
   workflow_dispatch:
 
+concurrency:
+  group: git-vscode-step-3-${{ github.repository }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   actions: write
@@ -158,6 +162,10 @@ jobs:
           if [ "$next_state" != "active" ]; then
             gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/4-remotes-and-pull-request.yml/enable"
           fi
+
+          # Laisse à GitHub quelques secondes pour enregistrer un événement déjà parti.
+          echo "Attendre les événements déjà en vol..."
+          sleep 2
 
           head_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/feature/robot-status" --jq '.object.sha')"
           pr_number="$(gh pr list --head feature/robot-status --base main --state all --limit 20 --json number,headRefOid --jq ".[] | select(.headRefOid == \"$head_sha\") | .number" | head -n 1)"

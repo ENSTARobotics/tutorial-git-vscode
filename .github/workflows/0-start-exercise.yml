@@ -81,6 +81,10 @@ jobs:
             gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/1-clone-and-branch.yml/enable"
           fi
 
+          # Laisse à GitHub quelques secondes pour enregistrer un événement déjà parti.
+          echo "Attendre les événements déjà en vol..."
+          sleep 2
+
           head_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/feature/robot-status" --jq '.object.sha' 2>/dev/null || true)"
           if [ -n "$head_sha" ]; then
             run_count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/1-clone-and-branch.yml/runs?branch=feature/robot-status&head_sha=$head_sha&per_page=1" --jq '.total_count')"
