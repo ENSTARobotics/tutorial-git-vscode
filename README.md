@@ -76,7 +76,7 @@ Le cours est conçu pour être réalisé sur **ta machine locale**, pas dans **G
 
 ## Démarrer
 
-Crée un nouveau dépôt à partir de ce **dépôt modèle** (_template_). Un dépôt modèle sert de point de départ : GitHub en copie les fichiers et les automatisations dans un nouveau dépôt indépendant. N'utilise pas **Fork** pour cet exercice.
+Crée un nouveau dépôt à partir de ce **dépôt modèle** (_template_). Un dépôt modèle sert de point de départ : GitHub en copie les fichiers et les automatisations dans un nouveau dépôt indépendant. N'utilise pas **Fork** pour cet exercice : un fork est une copie liée au dépôt d'origine, alors qu'ici on veut une copie indépendante créée depuis le modèle.
 
 [![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Tutoriel%20interactif%20%3A%20apprendre%20Git%20avec%20VS%20Code&visibility=public)
 
@@ -93,7 +93,7 @@ Après la création du dépôt :
 <details>
 <summary>Le cours ne démarre pas ?</summary>
 
-Ouvre l'onglet **Actions** et vérifie le workflow **Step 0**. GitHub Actions est le système d'automatisation utilisé par le bot du cours.
+Ouvre l'onglet **Actions** et vérifie le **workflow** **Step 0**. GitHub Actions est le système d'automatisation utilisé par le bot du cours ; un workflow est l'une de ces automatisations décrites dans le dépôt.
 
 </details>
 
