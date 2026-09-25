@@ -103,7 +103,7 @@ Cette commande n'annule pas ta modification : elle retire simplement le fichier 
 Crée maintenant un commit local. L'option `-m` permet d'écrire directement le **message du commit**. Le message suivant est un exemple, pas un mot de passe :
 
 ```bash
-git commit -m "Increase robot max speed"
+git commit -m "Augmenter la vitesse maximale du robot"
 ```
 
 Vérifie immédiatement :

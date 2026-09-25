@@ -90,7 +90,7 @@ git diff --staged
 
 Dans **Source Control** :
 
-1. saisis un message clair, par exemple `Ignore generated files` ;
+1. saisis un message clair, par exemple `Ignorer les fichiers générés` ;
 2. clique sur **Commit**.
 
 Puis vérifie le résultat dans le terminal :

@@ -1,6 +1,6 @@
 <!-- tutorial-git-vscode:review -->
 
-## Bilan : ton workflow Git local est complet
+## Bilan : ton cycle de travail Git local est complet
 
 🎉 Tu viens d'effectuer le cycle Git que tu réutiliseras sur les projets du club.
 
@@ -27,7 +27,7 @@ git push
    ↓
 pull request
    ↓
-review
+relecture
    ↓
 merge
 ```

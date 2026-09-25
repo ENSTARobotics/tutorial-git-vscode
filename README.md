@@ -4,7 +4,7 @@
 
 <img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="170px" />
 
-_Apprends le workflow Git utilisé au quotidien dans le club, depuis ton ordinateur._
+_Apprends le cycle de travail Git utilisé au quotidien dans le club, depuis ton ordinateur._
 
 </header>
 
@@ -23,22 +23,21 @@ ordinateur
   ↓
 VS Code + terminal
   ↓
-branche locale
+branche de travail
   ↓
 modification
   ↓
-staging
+changements préparés
   ↓
 commit local
-  ↓ push
+  ↓ publication
 GitHub
   ↓
 pull request
   ↓
 merge
   ↓
-git pull
-ordinateur à jour
+mise à jour du dépôt local
 ```
 
 ## Ce que tu vas apprendre
@@ -65,7 +64,7 @@ Avant de commencer :
 1. avoir un compte GitHub ;
 2. avoir **Git** installé sur ton ordinateur ;
 3. avoir **Visual Studio Code** installé ;
-4. idéalement avoir terminé [GitHub Basics](https://github.com/ENSTARobotics/tutorial-github-basics).
+4. avoir terminé **[GitHub Basics](https://github.com/ENSTARobotics/tutorial-github-basics)**, ou connaître déjà les notions de dépôt, branche, commit, pull request et merge.
 
 Tu peux vérifier Git avec :
 
@@ -79,7 +78,7 @@ Le cours est conçu pour être réalisé sur **ta machine locale**, pas dans Cod
 
 Crée un nouveau dépôt à partir de ce **dépôt modèle**.
 
-[![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Tutoriel%20interactif%20%3A%20apprendre%20Git%20en%20ligne%20de%20commande%20avec%20VS%20Code&visibility=public)
+[![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Tutoriel%20interactif%20%3A%20apprendre%20Git%20avec%20VS%20Code&visibility=public)
 
 Après la création du dépôt :
 

@@ -1,4 +1,4 @@
-## Étape 4 : comprendre le remote puis ouvrir une pull request
+## Étape 4 : comprendre la synchronisation avec GitHub puis ouvrir une pull request
 
 Tes commits locaux sont maintenant publiés sur GitHub. Avant d'ouvrir la pull request, prends deux minutes pour comprendre ce que Git suit réellement.
 
@@ -8,12 +8,23 @@ Tu travailles directement sur une **branche locale**, ici `feature/robot-status`
 
 Quand tu as exécuté `git push -u origin feature/robot-status`, Git a aussi créé la branche correspondante sur GitHub et les a associées.
 
-La branche distante utilisée par défaut pour les prochains `push` et `pull` s'appelle la **branche amont** ou **upstream branch**. Ici :
+La branche de référence utilisée par défaut pour les prochains `push` et `pull` s'appelle la **branche amont** (_upstream branch_).
+
+Dans ton dépôt, Git relie :
 
 ```text
-branche locale                 branche amont sur GitHub
-feature/robot-status    →      origin/feature/robot-status
+feature/robot-status
+        │
+        │ upstream
+        ▼
+origin/feature/robot-status
+        │
+        │ représente le dernier état connu de
+        ▼
+feature/robot-status sur GitHub
 ```
+
+Le point important est que `origin/feature/robot-status` n'est pas directement la branche hébergée sur GitHub : c'est une référence conservée dans ton dépôt local.
 
 Affiche d'abord ton remote :
 
@@ -27,13 +38,14 @@ Puis les branches locales et leur branche amont :
 git branch -vv
 ```
 
-Le nom `origin/feature/robot-status` mérite une précision : Git ne manipule pas directement la branche hébergée sur GitHub. Il conserve localement une **référence de suivi distant** (_remote-tracking branch_) qui représente le dernier état connu de cette branche sur `origin`.
+Git appelle `origin/feature/robot-status` une **référence de suivi distant** (_remote-tracking branch_) : elle mémorise localement le dernier état connu de la branche correspondante sur GitHub.
 
 En résumé :
 
-- `feature/robot-status` : ta branche locale, que tu modifies ;
-- `origin/feature/robot-status` : la référence locale du dernier état connu de la branche GitHub ;
-- **upstream** : la relation qui indique à Git que ces deux branches vont ensemble.
+- `feature/robot-status` : ta branche locale, celle que tu modifies ;
+- `feature/robot-status` sur GitHub : la vraie branche distante hébergée par GitHub ;
+- `origin/feature/robot-status` : la représentation locale du dernier état connu de cette branche distante ;
+- **upstream** : l'association par défaut entre ta branche locale et cette référence distante.
 
 ### `fetch`, `pull` et `push`
 
@@ -79,7 +91,7 @@ Choisis :
 Utilise un titre clair, par exemple :
 
 ```text
-Update robot configuration
+Mettre à jour la configuration du robot
 ```
 
 Ajoute une vraie description qui résume ce que tu as fait et pourquoi.
