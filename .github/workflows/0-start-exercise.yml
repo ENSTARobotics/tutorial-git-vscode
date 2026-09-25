@@ -23,7 +23,7 @@ jobs:
     uses: ENSTARobotics/exercise-toolkit-fr/.github/workflows/start-exercise.yml@19f8395fee473aca8af74039182a41cdda9ab0e3
     with:
       exercise-title: "Git & VS Code"
-      intro-message: "Tu vas apprendre à travailler sur un projet GitHub depuis ton ordinateur avec Git et VS Code. Chaque commande et chaque notion seront expliquées au moment où elles deviennent utiles."
+      intro-message: "Tu vas apprendre à travailler avec un dépôt GitHub depuis ton ordinateur et VS Code. Chaque commande et notion sera expliquée avant sa première utilisation."
       manage-workflows: true
       toolkit-ref: "19f8395fee473aca8af74039182a41cdda9ab0e3"
 
@@ -81,7 +81,11 @@ jobs:
             gh api --method PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/1-clone-and-branch.yml/enable"
           fi
 
-          if gh api "repos/${GITHUB_REPOSITORY}/branches/feature/robot-status" >/dev/null 2>&1; then
-            echo "La branche existe déjà : lancement immédiat de l'étape 1."
-            gh workflow run 1-clone-and-branch.yml --ref feature/robot-status
+          head_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/feature/robot-status" --jq '.object.sha' 2>/dev/null || true)"
+          if [ -n "$head_sha" ]; then
+            run_count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/1-clone-and-branch.yml/runs?branch=feature/robot-status&head_sha=$head_sha&per_page=1" --jq '.total_count')"
+            if [ "$run_count" -eq 0 ]; then
+              echo "La branche existe déjà : lancement immédiat de l'étape 1."
+              gh workflow run 1-clone-and-branch.yml --ref feature/robot-status
+            fi
           fi

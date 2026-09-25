@@ -1,4 +1,4 @@
-name: Step 3 # Historique et annulation
+name: Step 3 # Historique, restauration et VS Code
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
       ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
 
     steps:
-      - name: Récupérer la branche et son historique
+      - name: Récupérer la branche et l'historique
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           ref: feature/robot-status
@@ -163,6 +163,9 @@ jobs:
           pr_number="$(gh pr list --head feature/robot-status --base main --state all --limit 20 --json number,headRefOid --jq ".[] | select(.headRefOid == \"$head_sha\") | .number" | head -n 1)"
 
           if [ -n "$pr_number" ]; then
-            echo "La pull request #$pr_number existe déjà : lancement immédiat de l'étape 4."
-            gh workflow run 4-remotes-and-pull-request.yml --ref main -f pr-number="$pr_number"
+            run_count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/4-remotes-and-pull-request.yml/runs?head_sha=$head_sha&per_page=1" --jq '.total_count')"
+            if [ "$run_count" -eq 0 ]; then
+              echo "La pull request #$pr_number existe déjà : lancement immédiat de l'étape 4."
+              gh workflow run 4-remotes-and-pull-request.yml --ref main -f pr-number="$pr_number"
+            fi
           fi

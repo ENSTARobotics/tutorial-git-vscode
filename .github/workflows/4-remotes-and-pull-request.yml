@@ -1,4 +1,4 @@
-name: Step 4 # Synchronisation et pull request
+name: Step 4 # Remote et pull request
 
 on:
   pull_request:
@@ -54,7 +54,6 @@ jobs:
                 core.setFailed("Numéro de pull request invalide.");
                 return;
               }
-
               const response = await github.rest.pulls.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
