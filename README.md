@@ -52,7 +52,7 @@ Pendant l'exercice, tu vas apprendre à :
 - annuler proprement une modification locale avec `git restore` ;
 - créer une branche de travail avec `git switch` ;
 - comprendre comment ton dépôt local est relié à GitHub ;
-- utiliser le panneau **Source Control** et le graphe Git de VS Code ;
+- utiliser le panneau **Source Control**, l'interface Git intégrée à VS Code, et son graphe d'historique ;
 - effectuer le cycle complet jusqu'à une pull request et son merge.
 
 Les termes comme **remote**, **origin**, **staging area**, **upstream** ou **HEAD** seront définis au moment où tu les rencontres.
@@ -72,11 +72,11 @@ Tu peux vérifier Git avec :
 git --version
 ```
 
-Le cours est conçu pour être réalisé sur **ta machine locale**, pas dans Codespaces.
+Le cours est conçu pour être réalisé sur **ta machine locale**, pas dans **GitHub Codespaces**, l'environnement de développement que GitHub peut héberger directement dans le navigateur.
 
 ## Démarrer
 
-Crée un nouveau dépôt à partir de ce **dépôt modèle**.
+Crée un nouveau dépôt à partir de ce **dépôt modèle** (_template_). Un dépôt modèle sert de point de départ : GitHub en copie les fichiers et les automatisations dans un nouveau dépôt indépendant. N'utilise pas **Fork** pour cet exercice.
 
 [![Commencer le cours](https://img.shields.io/badge/Commencer%20le%20cours-%E2%86%92-1f883d?style=for-the-badge&logo=git&labelColor=197935)](https://github.com/new?template_owner=ENSTARobotics&template_name=tutorial-git-vscode&owner=%40me&name=tutorial-git-vscode&description=Tutoriel%20interactif%20%3A%20apprendre%20Git%20avec%20VS%20Code&visibility=public)
 

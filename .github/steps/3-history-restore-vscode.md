@@ -10,6 +10,13 @@ Dans le terminal :
 git log --oneline --graph --decorate --all
 ```
 
+Ces options modifient seulement l'affichage :
+
+- `--oneline` affiche un commit par ligne ;
+- `--graph` dessine les embranchements de l'historique ;
+- `--decorate` affiche les noms de branches et autres références près des commits ;
+- `--all` inclut toutes les références connues, pas seulement la branche courante.
+
 Tu dois voir au minimum :
 
 - `main`, ta branche principale locale ;

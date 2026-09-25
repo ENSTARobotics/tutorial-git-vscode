@@ -2,7 +2,7 @@
 
 Tes commits locaux sont maintenant publiés sur GitHub. Avant d'ouvrir la pull request, prends deux minutes pour comprendre ce que Git suit réellement.
 
-### Branche locale, branche sur GitHub et upstream
+### Branche locale et branche de référence
 
 Tu travailles directement sur une **branche locale**, ici `feature/robot-status`.
 

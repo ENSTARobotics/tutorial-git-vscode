@@ -33,6 +33,8 @@ Vérifie-le :
 git remote -v
 ```
 
+L'option `-v` signifie **verbose** : elle demande à Git d'afficher davantage de détails, ici les URL utilisées pour récupérer et publier les changements.
+
 Tu dois voir des URL qui pointent vers :
 
 ```text
@@ -102,6 +104,8 @@ Dans le club, on évite de travailler directement sur `main`. Crée une branche 
 git switch -c feature/robot-status
 ```
 
+`git switch` change de branche et l'option `-c` signifie ici **create** : elle crée d'abord la nouvelle branche puis te place dessus.
+
 Puis vérifie :
 
 ```bash
@@ -128,6 +132,8 @@ Tu peux visualiser cette relation avec :
 ```bash
 git branch -vv
 ```
+
+Ici, `-vv` demande un affichage détaillé des branches locales, notamment leur dernier commit et leur branche amont lorsqu'elle existe.
 
 Si tout est correct, la ligne de `feature/robot-status` contient une indication comme `[origin/feature/robot-status]`.
 
